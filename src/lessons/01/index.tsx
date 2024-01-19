@@ -19,19 +19,36 @@ export const Box = (props: JSX.IntrinsicElements['mesh']) => {
     )
 }
 
+export const Sphere = () => {
+    const sphereRef = useRef<THREE.Mesh>(null!)
+
+    useFrame(() => {
+        sphereRef.current.rotation.x += 0.01
+    })
+    return (
+        <mesh ref={sphereRef}>
+            <sphereGeometry />
+            <meshNormalMaterial wireframe />
+        </mesh>
+    )
+}
+
+export const Plane = () => {
+    return (
+        <mesh scale={5} rotation={[-1.5, 0, 0]} position={[0, -1, 0]}>
+            <planeGeometry />
+            <meshStandardMaterial color='orange' />
+        </mesh>
+    )
+}
+
 export const First = () => {
     return (
         <>
             <Canvas>
-                <mesh scale={1} position={[2, 0.5, 0.5]}>
-                    <sphereGeometry args={[1.5, 32, 32]} />
-                    <meshBasicMaterial color='lime' wireframe />
-                </mesh>
-                <mesh scale={5} position={[0, -2, 0]} rotation={[-1.5, 0, 0]}>
-                    <planeGeometry args={[1, 1, 100]} />
-                    <meshBasicMaterial color='red' />
-                </mesh>
                 <Box />
+                <Sphere />
+                <Plane />
             </Canvas>
             <Link to={`/`} className='returnBtn'>
                 Return
