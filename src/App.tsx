@@ -1,20 +1,19 @@
-import './App.css'
-import { Routes, Route } from 'react-router-dom'
+import { Link } from "react-router-dom"
 
-function App() {
-    return (
-        <>
-            <Routes>
-                <Route path='/'></Route>
-            </Routes>
-            <h1>Three.JS - React Three Fiber</h1>
-            <ul>
-                <li>
-                    <a href=''>First R3F App</a>
-                </li>
-            </ul>
-        </>
-    )
+export const APP = () => {
+	return (
+		<main>
+			<ul>
+				<li>
+					<Link to={`01`}>01 - First App</Link>
+				</li>
+				<li>
+					<Link to={"02"}>02 - Second</Link>
+				</li>
+				<li>
+					<Link to={"03"}>03 - 3D Text</Link>
+				</li>
+			</ul>
+		</main>
+	)
 }
-
-export default App

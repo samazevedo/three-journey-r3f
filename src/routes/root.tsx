@@ -1,28 +1,13 @@
-import { Outlet, Link } from 'react-router-dom'
+import { Outlet } from "react-router-dom"
+import { APP } from "../App"
+import { Header } from "../components/Header"
 
 export const Root = () => {
-    return (
-        <>
-            <main>
-                <Outlet />
-                <header className='header'>
-                    <h1>Three.js Journey </h1>
-                    <p>R3F - React Three Fiber</p>
-                </header>
-                <section>
-                    <ul>
-                        <li>
-                            <Link to={`01`}>01 - First App</Link>
-                        </li>
-                        <li>
-                            <Link to={'02'}>02 - Second</Link>
-                        </li>
-                        <li>
-                            <Link to={'02'}>02 - Second</Link>
-                        </li>
-                    </ul>
-                </section>
-            </main>
-        </>
-    )
+	return (
+		<>
+			<Outlet />
+			<Header />
+			<APP />
+		</>
+	)
 }
